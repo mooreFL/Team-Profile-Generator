@@ -9,8 +9,7 @@ const Employee = require("./lib/Employee");
 const teamArray = [];
 
 // first function to create manager, run through all manager questions. When done run .then; create the new manager. When finished call the create team function
-menu = () => {
-  createManager = () => {
+  const createManager = () => {
     inquirer
       .prompt([
         {
@@ -57,6 +56,12 @@ menu = () => {
             return "Please enter a number.";
           },
         },
+        {
+            type: "list",
+            name: "newCreate",
+            message: chalk.green("Would you like to add a new team member?"),
+            choices: ['Manager', 'Engineer', 'Intern', 'I do not need to add anyone else']
+        }
       ])
       .then((answers) => {
         const manager = new Manager(
@@ -65,9 +70,25 @@ menu = () => {
           answers.email,
           answers.officeNumber
         );
-        console.log(manager);
         teamArray.push(manager);
-        createTeam();
+        let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
+        let memberType = answers.newCreate;
+        while(continueAdd) {
+            if (memberType === 'Manager') {
+                createManager();
+
+            }
+            else if (memberType === 'Engineer') {
+                createEngineer();
+
+            }
+            else if (memberType === 'Intern') {
+                createIntern();
+
+            }
+            return
+        }
+        console.log(teamArray);
       });
   };
 
@@ -118,75 +139,39 @@ menu = () => {
             return "Please enter a valid user name.";
           },
         },
+        {
+            type: "list",
+            name: "newCreate",
+            message: chalk.red("Would you like to add a new team member?"),
+            choices: ['Manager', 'Engineer', 'Intern', 'I do not need to add anyone else']
+        }
       ])
       .then((answers) => {
         const engineer = new Engineer(
           answers.name,
           answers.id,
           answers.email,
-          answers.userName
+          answers.gitHubUserName,
         );
         teamArray.push(engineer);
-        createTeam();
-      });
-  };
+        let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
+        let memberType = answers.newCreate;
+        while(continueAdd) {
+            if (memberType === 'Manager') {
+                createManager();
 
-  createEmployee = () => {
-    inquirer
-      .prompt([
-        {
-          type: "input",
-          name: "name",
-          message: chalk.blue("Enter the employee's name"),
-          validate: (data) => {
-            if (data !== "") {
-              return true;
             }
-            return "Please enter a name.";
-          },
-        },
-        {
-          type: "input",
-          name: "id",
-          message: chalk.blue("What is the employee's id?"),
-          validate: (data) => {
-            if (data !== "") {
-              return true;
+            else if (memberType === 'Engineer') {
+                createEngineer();
+
             }
-            return "Please enter an ID.";
-          },
-        },
-        {
-          type: "input",
-          name: "email",
-          message: chalk.blue("What is the employee's email?"),
-          validate: (data) => {
-            if (data.match(/\S+@\S+\.\S+/)) {
-              return true;
+            else if (memberType === 'Intern') {
+                createIntern();
+
             }
-            return "Please enter an email.";
-          },
-        },
-        {
-          type: "input",
-          name: "officeNumber",
-          message: chalk.blue("What is the employee's office number?"),
-          validate: (data) => {
-            if (data !== "") {
-              return true;
-            }
-            return "Please enter a office number.";
-          },
-        },
-      ])
-      .then((answers) => {
-        const employee = new Employee(
-          answers.name,
-          answers.id,
-          answers.email
-        );
-        teamArray.push(employee);
-        createTeam();
+            return
+        }
+        console.log(teamArray);
       });
   };
 
@@ -237,22 +222,44 @@ menu = () => {
             return "Please enter a school.";
           },
         },
+        {
+            type: "list",
+            name: "newCreate",
+            message: chalk.yellow("Would you like to add a new team member?"),
+            choices: ['Manager', 'Engineer', 'Intern', 'I do not need to add anyone else']
+        }
       ])
       .then((answers) => {
         const intern = new Intern(
           answers.name,
           answers.id,
           answers.email,
-          answers.school
+          answers.school,
         );
         teamArray.push(intern);
-        createTeam();
+        let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
+        let memberType = answers.newCreate;
+        while(continueAdd) {
+            if (memberType === 'Manager') {
+                createManager();
+
+            }
+            else if (memberType === 'Engineer') {
+                createEngineer();
+
+            }
+            else if (memberType === 'Intern') {
+                createIntern();
+
+            }
+            return
+        }
+        console.log(teamArray);
       });
   };
   createManager();
-};
 
-menu();
+
 
 
 
