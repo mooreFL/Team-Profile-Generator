@@ -1,5 +1,5 @@
 const { expect } = require("@jest/globals");
-const Manager = require("../lib/Manager")
+const Manager = require("../lib/Manager");
 describe("Manager", () => {
     describe("Extend", () => {
         it("Should create a new project with office number", () => {
