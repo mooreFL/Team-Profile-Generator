@@ -213,7 +213,7 @@ const teamArray = [];
         },
         {
           type: "input",
-          name: "officeNumber",
+          name: "school",
           message: chalk.yellow("What is the intern's school?"),
           validate: (data) => {
             if (data !== "") {
