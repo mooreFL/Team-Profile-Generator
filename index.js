@@ -7,7 +7,7 @@ const chalk = require("chalk");
 const inquirer = require("inquirer");
 const Employee = require("./lib/Employee");
 const teamArray = [];
-
+const generateHTML = require("./src/generate")
 // first function to create manager, run through all manager questions. When done run .then; create the new manager. When finished call the create team function
   const createManager = () => {
     inquirer
@@ -73,6 +73,12 @@ const teamArray = [];
         teamArray.push(manager);
         let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
         let memberType = answers.newCreate;
+
+        if (!continueAdd) {
+          createFile();
+          return;
+        }
+
         while(continueAdd) {
             if (memberType === 'Manager') {
                 createManager();
@@ -156,6 +162,12 @@ const teamArray = [];
         teamArray.push(engineer);
         let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
         let memberType = answers.newCreate;
+
+        if (!continueAdd) {
+          createFile();
+          return;
+        }
+
         while(continueAdd) {
             if (memberType === 'Manager') {
                 createManager();
@@ -239,6 +251,12 @@ const teamArray = [];
         teamArray.push(intern);
         let continueAdd = answers.newCreate !== 'I do not need to add anyone else';
         let memberType = answers.newCreate;
+
+        if (!continueAdd) {
+          createFile();
+          return;
+        }
+
         while(continueAdd) {
             if (memberType === 'Manager') {
                 createManager();
@@ -261,6 +279,11 @@ const teamArray = [];
 
 
 
+  const createFile = () => {
+
+    fs.writeFile('index.html', generateHTML(teamArray), (err) =>
+    err ? console.log(err) : console.log('Successfully created index.html'))
+  }
 
 
 
@@ -272,8 +295,6 @@ const teamArray = [];
 //i.e.: if engineer then run engineer function
 //if "finish building team" is selected then create everything that was selected
 
-// two more functions exactly like engineer but for manager and intern
-// at end of both call create team function
 
 //push the created to the array that will end up in the html
 // the last function will pass the array to the function that renders the html
