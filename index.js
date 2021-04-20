@@ -98,6 +98,7 @@ const generateHTML = require("./src/generate")
       });
   };
 
+  //create engineer function 
   createEngineer = () => {
     inquirer
       .prompt([
@@ -278,23 +279,9 @@ const generateHTML = require("./src/generate")
   createManager();
 
 
-
+// create html function with message upon successful creation
   const createFile = () => {
 
     fs.writeFile('index.html', generateHTML(teamArray), (err) =>
     err ? console.log(err) : console.log('Successfully created index.html'))
   }
-
-
-
-
-
-//createteam: will have one question (list) with three options, I.E. Intern, Engineer, Finish building my team
-
-//based on answers you will have a .then, run a switch case
-//i.e.: if engineer then run engineer function
-//if "finish building team" is selected then create everything that was selected
-
-
-//push the created to the array that will end up in the html
-// the last function will pass the array to the function that renders the html
