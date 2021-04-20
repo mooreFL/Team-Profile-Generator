@@ -16,22 +16,23 @@ describe("Employee", () => {
     })
     
     test ("get name with getName function", () => {
-        const employee = new Employee("Patrick");
+        const employee = new Employee("Patrick", 123, "moore@gmail.com");
         expect(employee.getName()).toBe(employee.name);
     })
 
     test ("get id with getId function", () => {
-        const employee = new Employee("123");
+        const employee = new Employee("Patrick", 123, "moore@gmail.com");
+        console.log(employee.id);
         expect(employee.getId()).toBe(employee.id);
     })
 
     test ("get email with getEmail function", () => {
-        const employee = new Employee("moore@gmail.com");
+        const employee = new Employee("Patrick", 123, "moore@gmail.com");
         expect(employee.getEmail()).toBe(employee.email);
     })
 
     test ("get role with getRole function", () => {
-        const employee = new Employee("Patrick");
+        const employee = new Employee("Patrick", 123, "moore@gmail.com");
         expect(employee.getRole()).toBe('Employee');
     })    
 })

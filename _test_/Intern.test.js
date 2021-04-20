@@ -10,12 +10,12 @@ describe("Intern", () => {
     });
 
     test ("Can get school via getSchool function", () => {
-        const intern = new Intern("UCF");
+        const intern = new Intern("Patrick", 123, "moore@gmail.com","UCF");
         expect(intern.getSchool()).toBe(intern.school);
     })
 
     test ("Can get role with getRole function", () => {
-        const intern = new Intern("Intern");
+        const intern = new Intern("Patrick", 123, "moore@gmail.com","UCF");
         expect(intern.getRole()).toBe("Intern");
     })
 })

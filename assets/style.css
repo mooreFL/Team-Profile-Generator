@@ -1,0 +1,49 @@
+root {
+    --red: #E0282E;
+    --blue: #227EFA;
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.jumbotron {
+    background-color: var(--red);
+    color: white;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+}
+
+.card {
+    margin-bottom: 20px;
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.card-header {
+    background-color: var(--blue);
+    color: white;
+}
+
+.card-subtitle {
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+   .card {
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       flex: 1 0 100%;
+   }
+}

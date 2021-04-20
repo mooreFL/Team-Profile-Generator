@@ -9,12 +9,12 @@ describe("Manager", () => {
     });
 
     test ("Can get office number with officeNumber function", () => {
-        const manager = new Manager("A123");
+        const manager = new Manager("Patrick", 123, "moore@gmail.com","A123");
         expect(manager.getOfficeNumber()).toBe(manager.officeNumber);
     })
 
     test ("Can get role with getRole function", () => {
-        const manager = new Manager("Manager");
+        const manager = new Manager("Patrick", 123, "moore@gmail.com","A123");
         expect(manager.getRole()).toBe("Manager");
     })
 })
