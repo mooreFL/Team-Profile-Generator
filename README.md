@@ -3,8 +3,8 @@
 
 
   ## Link
-      [Link](https://moorefl.github.io/Team-Profile-Generator/)
-      
+[Link](https://moorefl.github.io/Team-Profile-Generator/)
+
   ## Description 
 A node command line application that takes in employee information and generates a HTML page that displays that information.
 
