@@ -2,7 +2,10 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description 
-A node command line application that takes in employee information and generates a HTML page that displays that information. 
+A node command line application that takes in employee information and generates a HTML page that displays that information.
+
+  <img src= "assets\HTML SS.PNG">
+
   ## Table of Contents 
   * [Installation](#installation) 
   * [Usage](#Usage)
@@ -10,7 +13,7 @@ A node command line application that takes in employee information and generates
   * [Contributing](#Contributing)
   * [Testing](#Testing)
   * [Contact](#Contact)
-  
+
   # Installation
   To install use the following code:
    npm i
