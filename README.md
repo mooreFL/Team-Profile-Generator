@@ -1,8 +1,13 @@
 # Team Profile Generator
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+  ## Link
+      [Link](https://moorefl.github.io/Team-Profile-Generator/)
+      
   ## Description 
 A node command line application that takes in employee information and generates a HTML page that displays that information.
+
 
   <img src= "assets\HTML SS.PNG">
 
